@@ -4,9 +4,9 @@ import json
 
 app = Flask(__name__)
 
-person = {"TaroYamada":{
-            "password": "PaSSwd4TY",
-            "nickname": "たろー",
+person = {"kaito":{
+            "password": "kaikaipoteto",
+            "nickname": "コケ",
             "comment": "僕は元気です"}
 }
 

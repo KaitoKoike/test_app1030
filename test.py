@@ -15,11 +15,11 @@ def main():
     #print(json.dumps(r.json(),indent=2,))
     print("done")
     print("--------------user information ---------")
-    user_id = "TaroYamada"
-    password = "PaSSwd4TY"
+    user_id = "kaito"
+    password = "kaikaipoteto"
     header = {
         'method': 'GET',
-        "Authorization":"TaroYamada:PaSSwd4TY"
+        "Authorization":"kaito:kaikaipoteto"
         }
 
     r = requests.get(url+"/users/"+user_id,headers=header)
