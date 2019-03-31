@@ -10,19 +10,22 @@ def index():
 @app.route("/signup")
 def register():
     html = """
-    <form action="/test">
+    <form action="/signup">
         <p><label>test: </label>
-        <input type="text" name="test" value="aaaa">
-        <input type="text" name="pass" value="0000"
-        <button type="submit" formmethod="post">POST</button></p>
+        <input type="text" name="id" value="aaaa"> </br>
+        <label>pass: </label>
+        <input type="text" name="pass" value="0000">
+        <button type="submit" formmethod="post">Sign UP</button></p>
     </form>
     """
     return Markup(html)
 
-@app.rout("/signup",methods=["POST"])
+@app.route("/signup",methods=["POST"])
 def add_person():
-    print(request.get_jason())
-    return "",204
+    if request.method == "POST":
+        return request.form["id"]
+    else:
+        return "" ,204
 
 
 
