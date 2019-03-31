@@ -12,7 +12,7 @@ person = {"TaroYamada":{
 
 
 @app.route("/")
-def index():
+def index(status,user_id=None):
     return "",404
 
 @app.route("/signup")
@@ -29,7 +29,6 @@ def register():
     return Markup(html)
 
 @app.route("/signup",methods=["POST"])
-
 def add_person():
     if request.method == "POST":
         success_msg = {
@@ -54,29 +53,32 @@ def add_person():
     else:
         return "" ,204
 
-@app.route("/users",methods=["GET"])
-def get_person():
-    person_id, person_pass = request.heaers["Authorization"].split(":")
+@app.route("/users/<user_id>",methods=["GET"])
+def get_person(user_id = None):
+    user_id = user_id
+    person_id, person_pass = request.headers["Authorization"].split(":")
+    print(person_id,person_pass)
     if person_id in person and person[person_id]["password"] == person_pass:
         success_msg = {
         "message": "User details by user_id",
         "user": {
         "user_id": "TaroYamada",
-        "nickname": "",
-        "comment": ""
+        "nickname": ""
             }
         }
-        success_msg["user_id"] = person_id
+        success_msg["user"]["user_id"] = person_id
         if person[person_id]["nickname"]:
-            success_msg["nickname"] = person[person_id]["nickname"]
+            success_msg["user"]["nickname"] = person[person_id]["nickname"]
         else:
-            success_msg["nickname"] = person[person_id]
+            success_msg["user"]["nickname"] = person[person_id]
         if person[person_id]["comment"]:
-            success_msg["comment"] = person[person_id]["comment"]
+            success_msg["user"]["comment"] = person[person_id]["comment"]
         return json.dumps(success_msg),200
     else:
         error_msg = { "message":"Authentication Faild" }
         return json.dumps(error_msg) , 401
+
+
 
 
 if __name__ == "__main__":
