@@ -13,7 +13,7 @@ person = {"TaroYamada":{
 
 @app.route("/")
 def index():
-    return "Hello World"
+    return "",404
 
 @app.route("/signup")
 def register():
@@ -21,8 +21,6 @@ def register():
     <form action="/signup">
         <p><label>ID: </label>
         <input type="text" name="id" value="aaaa"> </br>
-        <label>Nick Name: </label>
-        <input type="text" name="nickname" value="AAAa"> </br>
         <label>pass: </label>
         <input type="text" name="pass" value="0000">
         <button type="submit" formmethod="post">Sign UP</button></p>
@@ -38,12 +36,10 @@ def add_person():
                     "message": "Account successfully created",
                     "user": {
                     "user_id": "",
-                    "nickname": ""
                     }
                     }
         person_id = request.form["id"]
         person_pass = request.form["pass"]
-        person_nick = request.form["nickname"]
         if person_id not in person:
             person[person_id] = {"pass":person_pass}
             success_msg["user"]["user_id"] = person_id
