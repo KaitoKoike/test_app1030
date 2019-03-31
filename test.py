@@ -2,7 +2,7 @@ import json
 import requests
 
 def main():
-    url = "https://git.heroku.com/testapp1030.git"
+    url = "https://testapp1030.herokuapp.com"
     query = {
         'method': 'POST',
         'id': "sununu",

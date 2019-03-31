@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, Markup
+from flask import Flask, request, Markup ,render_template
 import json
 
 app = Flask(__name__)
@@ -12,8 +12,9 @@ person = {"TaroYamada":{
 
 
 @app.route("/")
-def index(status,user_id=None):
-    return "",404
+def index():
+    html = "<h1>hello world ! </h1>"
+    return Markup(html)
 
 @app.route("/signup")
 def register():
