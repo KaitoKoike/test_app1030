@@ -3,8 +3,11 @@ from flask import Flask, request, Markup
 
 app = Flask(__name__)
 
-person = {}
-
+person = {"TaroYamada":{
+            "password": "PaSSwd4TY",
+            "nickname": "たろー",
+            "comment": "僕は元気です"}
+}
 
 
 @app.route("/")
@@ -43,8 +46,11 @@ def add_person():
             success_msg["nickname"] = person_id
             return success_msg,200
         else:
-
-        
+            error_msg = {
+                "message": "Account creation failed",
+                "cause": "required user_id and password"
+                }
+            return error_msg,400
     else:
         return "" ,204
 
