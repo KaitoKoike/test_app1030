@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, request, Markup
 
 app = Flask(__name__)
 
@@ -8,7 +8,7 @@ def index():
     return "Hello World"
 
 @app.route("/signup",methods=["POST"])
-def Signup():
+def register():
     html = """
     <form action="/test">
         <p><label>test: </label>
