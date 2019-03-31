@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     return "Hello World"
 
-@app.route("/signup",method=["POST"])
+@app.route("/signup",methods=["POST"])
 def signup():
     html = """
     <form action="/test">
