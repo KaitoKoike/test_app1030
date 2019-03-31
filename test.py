@@ -19,7 +19,7 @@ def main():
     password = "kaikaipoteto"
     header = {
         'method': 'GET',
-        "Authorization":"kaito:kaikaipoteto"
+        "Authorization":"kaito:kaikaipoteto-"
         }
 
     r = requests.get(url+"/users/"+user_id,headers=header)
