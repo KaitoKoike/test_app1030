@@ -8,7 +8,7 @@ def index():
     return "Hello World"
 
 @app.route("/signup",methods=["POST"])
-def signup():
+def Signup():
     html = """
     <form action="/test">
         <p><label>test: </label>
