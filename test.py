@@ -2,7 +2,7 @@ import json
 import requests
 
 def main():
-    url = "http://127.0.0.1:5000"
+    url = "https://git.heroku.com/testapp1030.git"
     query = {
         'method': 'POST',
         'id': "sununu",
@@ -24,7 +24,7 @@ def main():
 
     r = requests.get(url+"/users/"+user_id,headers=header)
     print(r)
-    print(json.dumps(r.json(),indent=2,)) 
+    print(json.dumps(r.json(),indent=2)) 
     
 if __name__ == "__main__":
     main()
