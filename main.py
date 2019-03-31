@@ -40,9 +40,7 @@ def add_person():
                     }
         person_id = request.form["id"]
         person_pass = request.form["pass"]
-        if not person_id or not person_pass:
-            return "" , 400
-        if person_id not in person:
+        if (person_id not in person) and (person_id and person_pass):
             person[person_id] = {"pass":person_pass}
             success_msg["user"]["user_id"] = person_id
             print(person)
